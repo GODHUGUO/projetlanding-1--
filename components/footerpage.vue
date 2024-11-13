@@ -59,7 +59,7 @@
 </div>
 
 <hr>
-<p class="fin">©Copywriting|All Rights Reserved|Terms of Use|Privacy <br>
+<p class="fin">©Copywriting|All Rights Reserved|Terms of se|Privacy <br>
 CODE BY GODONOU JEAN-HUGUES OLUFEMI 
 </p>
   </div>
