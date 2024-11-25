@@ -1,16 +1,16 @@
 <template>
   <div>
 
-<div class="header">
+<div class="header"    >
 
-  <div class="gauche">
-<div class="imagelogo">
+  <div class="gauche" ref="logo" >
+<div class="imagelogo"  >
   <img src="@/public/images/logo.png" alt="logo menu">
 </div>
 
-<div class="elementmenu">
+<div class="elementmenu"    >
 
-  <li v-for="item in menuItems" :key="item.id">
+  <li v-for="item in menuItems" :key="item.id"  >
         <!-- <NuxtLink :to="{ path: item.path }" :class="{ active: $route.path === item.path }" class="er" >{{ item.label }}</NuxtLink> -->
         <NuxtLink :to="item.path" :class="{ active: $route.path === item.path }" class="er" >{{ item.label }}</NuxtLink>
   </li>
@@ -20,7 +20,7 @@
 </div>
 
 
-<div class="droite">
+<div class="droite"  ref="logodroite"      >
 
 <button class="signin">Sign in</button>
 <button class="getstarted">Get Started</button>
@@ -45,24 +45,47 @@
 </div>   
 </div>
 
-
-
-
-
-
   </div>
 
 
 </template>
 
 <script setup>
+import { gsap } from 'gsap'
+import { onMounted, ref } from 'vue'
 const menuItems = [
 { id: 1, label: 'AI cover Letter Generator',path: '/#section1' },
 { id: 2, label: 'Resume Template',path: '/#section2' },
 { id: 3, label: 'Pricing',path: '/#section3' }
 ]
 
+const logo=ref(null)
+ const logodroite =ref(null)
+
+const tel = gsap.timeline();
+onMounted(() => {
+     
+     tel.from(logo.value, { 
+       y: -30,        
+           opacity:0,
+          delay:1,
+         ease:"bounce",
+         stagger  : 0.2,
+     });
+
+
+      tel.from(logodroite.value, { 
+        y: -5,        
+           opacity:0,
+    
+         ease:"bounce",
+       stagger  : 0.1,
+      });
+
+   });
+
 const change=ref(true);
+
 
 function clickk() {
     change.value = !change.value

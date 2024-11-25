@@ -5,11 +5,11 @@
 
 <div class="section1part1">
 
-<h1> <span>Win your dream job </span> <br>  with PostJob </h1>
+ <h1> <span>Win your dream job </span> <br>  with PostJob </h1> 
 
 </div>
 
-<div class="section1part2">
+<div class="section1part2   box">
     <p> Submit better job app — 10x faster. AI cover letter <br> generator, resume keyword checker, outreach message <br> writer, and more. Powered by GPT</p>
 </div>
 
@@ -22,6 +22,7 @@
 </div>
 
  <div class="section1part4">
+
 
 
 <div class="fleelement">
@@ -53,31 +54,14 @@
 </div> 
 
 </div>
-
-
-
-
-
-
-
-
 </div> 
-
-
-
-
-
-
-
-
-
 </div>
 
 
 <div class="section2">
 <H3>Submit Better job <br>  applications</H3>
 
-<h1>10x faster</h1>
+ <h1>10x faster</h1>
 <p>AI cover letter generator, resume keyword checker, outreach <br> message writer, and more. Powered by GPT</p>
 
 
@@ -170,7 +154,7 @@
 
 <div class="section4">
 <div class="section4part1">
-<div class="gauchesection4">
+<div class="gauchesection4" >
 <span>             
     Free AI cover letter  generator powered  by GPT
 </span> <br>
@@ -193,10 +177,10 @@
 <div class="section4part1">
 
 
-<div class="droitesection4">
+<div class="droitesection4"  ref="box">
     <img src="@/public/images/Illustration2.png" alt="logo menu">
 </div>
-<div class="gauchesection4">
+<div class="gauchesection4" ref="boxes">
 <span>             
     Optimize the keywords in your resume
 </span> <br>
@@ -239,21 +223,81 @@
 import { onMounted, ref } from 'vue'
 import gsap from 'gsap'
 
-const box = ref(null)
+ const box = ref(null)
+ const boxes = ref(null)
+
+const tel = gsap.timeline();
+
 
 onMounted(() => {
-  // Configure l’animation de défilement pour l'élément référencé par `box`
-  gsap.to(box.value, {
+     
+
+        tel.from(".section1part1 h1", { 
+        x:5,
+       opacity:0,
+       duration:0.5
+
+        });
+
+      tel.from(".section1part2  p", { 
+      x:10,
+     opacity:0,
+     duration:1
+
+      });
+
+      tel.from(".fleelement  .flexelement1", { 
+   y:30,
+     opacity:0,
+     stagger:0.19,
+     duration:0.8
+    
+
+      });
+
+gsap.from(box.value, {
+    x:-100,
+        opacity:0,
+        duration:1,
+   
     scrollTrigger: {
+
       trigger: box.value,
-      start: "top 80%", // Déclenche l'animation quand l'élément atteint 80% de la hauteur de la fenêtre
-      toggleActions: "play none none none" // Démarre l'animation une seule fois
+       scroller:"body"
     },
-    opacity: 1,
-    y: 0,
-    duration: 1.5
-  })
-})
+ 
+  });
+
+
+
+  gsap.from(boxes.value, {
+    x:-100,
+        opacity:0,
+        duration:1,
+        
+        scrollTrigger: {
+   
+      trigger: boxes.value,
+       scroller:"body"
+    },
+ 
+  });
+
+   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 <style lang="scss">
@@ -284,10 +328,13 @@ onMounted(() => {
  
 // border: 1px solid green;
     .section1part1{
+        animation:none;
+       
+        transition:none;
      color: #ffffff;
      text-align: center;
     h1{
-        font-size: 50Px;
+     font-size: 50px;
     }
 span{
     color: #6DE754;
@@ -466,7 +513,7 @@ font-family: Montserrat;
     // background:linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), url('/images/image9.png');
 
     background: 
-  linear-gradient(to top, rgba(109, 231, 84,    1) 0%, rgba(109, 231, 84, 0) 70%), 
+  linear-gradient(to top, rgba(109, 231, 84,    1) 0%, rgba(109, 231, 84, 0) 70%),
   url('/images/image9.png');
 
 
