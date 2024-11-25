@@ -9,6 +9,8 @@
 
 <script setup>
 
+
+
 </script>
 
 <style lang="scss">
@@ -26,8 +28,8 @@
 
 body{
     outline: 1px solid blue;
-    font-family: "Sevillana", cursive;
-
+   font-family: Montserrat;
+   outline:4px solid red;
     background-color: #161815;
 
 

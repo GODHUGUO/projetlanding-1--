@@ -6,4 +6,4 @@ if (process.client) {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-export default gsap 
+export default gsap
